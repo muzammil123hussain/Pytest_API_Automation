@@ -110,6 +110,27 @@ def test_get_special_investigation_tests():
         'Authorization': f"Bearer {pytest.access_token}"
     }
     response = requests.get(url=url, headers=headers)
-    print(pytest.phone_no, pytest.password)
     assert_that(response.status_code).is_equal_to(200)
 
+def test_reimbursement_claim():
+    url = f"{config.BASE_URI}/sb/api/claims/reimbursement/"
+    headers = {
+        'Authorization': f"Bearer {pytest.access_token}"
+    }
+    payload = payloads.reimbursement()
+    files = payloads.reimbursement_files()
+
+    response = requests.post(url=url, data=payload, headers=headers, files=files)
+    assert_that(response.status_code).is_equal_to(201)
+
+def test_planned_surgery_prior_approval():
+    url = f"{config.BASE_URI}/sb/api/claims/planned-surgery-prior-approval/"
+    headers = {
+        'Authorization': f"Bearer {pytest.access_token}"
+    }
+    payload = payloads.planned_surgery()
+    files = payloads.planned_surgery_files()
+
+    response = requests.post(url=url, data=payload, headers=headers, files=files)
+    print(pytest.phone_no, pytest.password)
+    assert_that(response.status_code).is_equal_to(201)

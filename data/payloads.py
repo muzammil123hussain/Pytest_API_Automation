@@ -1,4 +1,4 @@
-
+from importlib.metadata import files
 from json import dumps
 import pytest
 from utils import helpers_functions
@@ -299,3 +299,32 @@ def update_profile():
         "iban": "AD1400080001001234567116"
     })
     return update_profile
+
+def reimbursement():
+    reimbursement = {
+        'type': 'Daycare Surgeries'
+    }
+    return reimbursement
+
+def reimbursement_files():
+    files=[
+        ('attachments',('Final.jpeg',open('/home/muzammil/Documents/python-projects/SB-Tests/data/files/Final.jpeg','rb'),'image/jpeg')),
+        ('attachments',('Final.jpeg',open('/home/muzammil/Documents/python-projects/SB-Tests/data/files/Final.jpeg','rb'),'image/jpeg'))
+    ]
+    return files
+
+def planned_surgery():
+    planned_surgery = {
+        'surgery': 'Surgery',
+        'hospital': 'Agha Khan',
+        'surgery_date': '2022-07-24'
+    }
+    return planned_surgery
+
+def planned_surgery_files():
+    files=[ 
+        ('medical_card',('Final.jpeg',open('/home/muzammil/Documents/python-projects/SB-Tests/data/files/Final.jpeg','rb'),'image/jpeg')),
+        ('doctor_prescription',('Final.jpeg',open('/home/muzammil/Documents/python-projects/SB-Tests/data/files/Final.jpeg','rb'),'image/jpeg'))
+    ]
+    return files
+    
